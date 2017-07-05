@@ -19,7 +19,7 @@ The starter code provided is a fresh project created witht the package `create-r
 - It must have an Author view that lists all the posts written by a specific author. Author pages must be accessible on a prametric route like `/authors/:name`
 - It must have a custom 404 route for resources that are not found.
 - It must be consistently styled with a CSS framework of your choice
-- It must fetch data from [this API]() (follow link for documentation)
+- It must fetch data from [this API](https://github.com/northcoders/react-router-blog-api/blob/master/README.md) (follow link for documentation)
 
 ## Advanced Requirements
 
