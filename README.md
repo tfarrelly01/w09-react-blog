@@ -8,6 +8,10 @@ Although it's not maintained by the React team at Facebook, React Router is the 
 
 Your task is to implement a simple React blog application with client side routing using React Router and with the dummy data exposed by the provided API.
 
+## Setup
+
+The starter code provided is a fresh project created witht the package `create-react-app`. If you'd rather have a custom webpack configuration, feel free to delete the provided boilerplate code and create your own. The setup from the previous sprint should be good enough to start. Note: you might need to enable the `historyApiFallback` option on the devServer configuration object ([see docs](https://webpack.js.org/configuration/dev-server/#devserver-historyapifallback))
+
 ## Requirements
 
 - It must have a Latest Posts view that shows a list of posts with their titles, author and date. Each post must link to its own Post view.
