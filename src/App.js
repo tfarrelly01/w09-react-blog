@@ -3,6 +3,7 @@ import './App.css';
 
 // import Proptypes from 'prop-types'
 import Posts from './Posts';
+import PostPage from './PostPage';
 
 
 import {
@@ -43,12 +44,6 @@ const Home = () => (
 const Authors = () => (
   <div>
     <h2>Author</h2>
-  </div>
-);
-
-const PostPage = () => (
-  <div>
-    <h2>PostPage</h2>
   </div>
 );
 

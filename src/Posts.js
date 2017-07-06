@@ -34,7 +34,7 @@ class Posts extends Component {
                         <h3 className="panel-title">
                             Posts
                         </h3>
-                        {this.state.posts.sort(this.state.posts.createdAt).map((post) => (                            
+                        {this.state.posts.sort(this.state.posts.createdAt).map((post) => (
                             <Post
                                 key={post.id}
                                 id={post.id}
@@ -59,8 +59,8 @@ const Post = (props) => (
 );
 
 Post.propTypes = {
-    key: PropTypes.number.isRequired,
-    title: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
     createdAt: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired
 };
