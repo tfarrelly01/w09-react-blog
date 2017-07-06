@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
-import axios from 'axios';
+
 // import Proptypes from 'prop-types'
+import Posts from './Posts';
 
 import {
   BrowserRouter as Router,
@@ -9,29 +10,8 @@ import {
   Link
 } from 'react-router-dom';
 
-const API_URL = 'https://react-router-blog-api-ptpsayzdyc.now.sh';
-
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      page: '',
-      posts: []
-    };
-  }
-
-  componentDidMount() {
-    axios.get(`${API_URL}/posts`)
-      .then((res) => {
-        console.log(res.data)
-        this.setState({
-          posts: res.data.posts
-        });
-      })
-      .catch(console.log);
-  }
-
-  render() {
+  render () {
     return (
       <Router>
         <div>
@@ -58,19 +38,10 @@ const Home = () => (
   </div>
 );
 
-const Posts = () => (
-  <div><h2>Posts</h2></div>
-);
-
 const Authors = () => (
   <div>
     <h2>Author</h2>
   </div>
 );
-
-
-
-
-
 
 export default App;
