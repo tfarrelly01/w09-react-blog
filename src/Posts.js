@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-
+import {Link} from 'react-router-dom'
 import './Posts.css';
 // import {API_URL} from './config';
 const API_URL = 'https://react-router-blog-api-ptpsayzdyc.now.sh';
@@ -29,14 +29,15 @@ class Posts extends Component {
     render () {
         return (
             <div className="component-posts">
-                <div className="panel">
+                <div className="container">
                     <div className="panel-body">
                         <h3 className="panel-title">
                             Posts
                         </h3>
-                        {this.state.posts.map((post, i) => (
+                        {this.state.posts.sort(this.state.posts.createdAt).map((post) => (                            
                             <Post
-                                key={i}
+                                key={post.id}
+                                id={post.id}
                                 author={post.author}
                                 createdAt={post.createdAt}
                                 title={post.title} 
@@ -51,8 +52,7 @@ class Posts extends Component {
 
 const Post = (props) => (
     <div className="component-post"> 
-        <p>{props.key}</p>
-        <p>{props.title}</p>
+        <Link to={`/posts/${props.id}`}>{props.title}</Link>
         <p>{props.createdAt}</p> 
         <p>{props.author}</p>  
     </div>

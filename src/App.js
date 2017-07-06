@@ -4,6 +4,7 @@ import './App.css';
 // import Proptypes from 'prop-types'
 import Posts from './Posts';
 
+
 import {
   BrowserRouter as Router,
   Route,
@@ -25,6 +26,7 @@ class App extends Component {
           </div>
           <Route exact path="/" component={Home} />
           <Route exact path="/posts" component={Posts} />
+          <Route path="/posts/:postId" component={PostPage}/>
           <Route exact path="/authors" component={Authors} />
         </div>
       </Router>
@@ -41,6 +43,12 @@ const Home = () => (
 const Authors = () => (
   <div>
     <h2>Author</h2>
+  </div>
+);
+
+const PostPage = () => (
+  <div>
+    <h2>PostPage</h2>
   </div>
 );
 
