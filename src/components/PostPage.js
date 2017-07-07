@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-import './PostPage.css';
+import '../styles/PostPage.css';
 // import {API_URL} from './config';
 const API_URL = 'https://react-router-blog-api-ptpsayzdyc.now.sh';
 

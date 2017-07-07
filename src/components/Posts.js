@@ -2,28 +2,11 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom'
-import './Posts.css';
-// import {API_URL} from './config';
-const API_URL = 'https://react-router-blog-api-ptpsayzdyc.now.sh';
+import '../styles/Posts.css';
 
 class Posts extends Component {
     constructor (props) {
         super(props);
-        this.state = {
-            page: '',
-            posts: []
-        };
-    }
-    componentDidMount () {
-        axios.get(`${API_URL}/posts`)
-            .then((res) => {
-                console.log(res.data);
-                this.setState({
-                    page: res.data.page,
-                    posts: res.data.posts
-                });
-            })
-            .catch(console.log);
     }
 
     render () {
@@ -34,7 +17,7 @@ class Posts extends Component {
                         <h3 className="panel-title">
                             Posts
                         </h3>
-                        {this.state.posts.sort(this.state.posts.createdAt).map((post) => (
+                        {this.props.posts.sort(this.props.posts.createdAt).map((post) => (
                             <Post
                                 key={post.id}
                                 id={post.id}
@@ -49,6 +32,10 @@ class Posts extends Component {
         );
     }
 }
+
+Posts.propTypes = {
+    posts: PropTypes.array.isRequired
+};
 
 const Post = (props) => (
     <div className="component-post"> 
