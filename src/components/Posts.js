@@ -1,21 +1,17 @@
-import React, {Component} from 'react';
-import axios from 'axios';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../styles/Posts.css';
 
-class Posts extends Component {
-    constructor (props) {
-        super(props);
-    }
 
-    render () {
+class Posts extends Component {
+
+    render() {
         return (
             <div className="component-posts">
                 <div className="container">
                     <div className="panel-body">
                         <h3 className="panel-title">
-                            Posts
                         </h3>
                         {this.props.posts.sort(this.props.posts.createdAt).map((post) => (
                             <Post
@@ -23,7 +19,7 @@ class Posts extends Component {
                                 id={post.id}
                                 author={post.author}
                                 createdAt={post.createdAt}
-                                title={post.title} 
+                                title={post.title}
                             />
                         ))}
                     </div>
@@ -38,10 +34,10 @@ Posts.propTypes = {
 };
 
 const Post = (props) => (
-    <div className="component-post"> 
-        <Link to={`/posts/${props.id}`}>{props.title}</Link>
-        <p>{props.createdAt}</p> 
-        <p>{props.author}</p>  
+    <div className="component-post">
+        <p><Link to={`/authors/${props.author}`}>{props.author}</Link></p>
+        <p><Link to={`/posts/${props.id}`}>{props.title}</Link></p>
+        <p>{props.createdAt}</p>
     </div>
 );
 

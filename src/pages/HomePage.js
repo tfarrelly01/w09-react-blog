@@ -15,7 +15,6 @@ class HomePage extends Component {
     componentDidMount () {
         axios.get(`${API_URL}/posts`)
             .then((res) => {
-                console.log(res.data);
                 this.setState({
                     page: res.data.page,
                     posts: res.data.posts
@@ -32,9 +31,8 @@ class HomePage extends Component {
                         <h3 className="panel-title">
                             Latest Posts ....
                         </h3>
-                        <Posts 
-                            page={this.state.page} posts={this.state.posts}
-                        />
+                        <Posts page={this.state.page} posts={this.state.posts}  />
+                        {/*<Paginator />*/}
                     </div>
                 </div>
             </div>

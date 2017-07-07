@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import '../styles/App.css';
 
 // import Proptypes from 'prop-types'
@@ -12,20 +12,18 @@ import PostPage from './PostPage';
 
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 
 class App extends Component {
-  render () {
+  render() {
     return (
       <Router>
         <div>
           <NavBar />
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/posts" component={Posts} />
-          <Route path="/posts/:postId" component={PostPage}/>
-          <Route exact path="/authors" component={AuthorPage} />
+          <Route path="/posts/:postId" component={PostPage} />
+          <Route exact path="/authors/:name" component={AuthorPage} />
         </div>
       </Router>
     );
