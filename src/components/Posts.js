@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import '../styles/Posts.css';
 
 
 class Posts extends Component {
 
-    render() {
+    render () {
         return (
             <div className="component-posts">
                 <div className="container">
@@ -35,7 +35,7 @@ Posts.propTypes = {
 
 const Post = (props) => (
     <div className="component-post">
-        <p><Link to={`/authors/${props.author}`}>{props.author}</Link></p>
+        <p><Link to={`/authors/${props.author}/0`}>{props.author}</Link></p>
         <p><Link to={`/posts/${props.id}`}>{props.title}</Link></p>
         <p>{props.createdAt}</p>
     </div>

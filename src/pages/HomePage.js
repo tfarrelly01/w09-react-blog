@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../styles/HomePage.css';
 import axios from 'axios';
+import Paginator from '../components/Paginator';
 import Posts from '../components/Posts';
 const API_URL = 'https://react-router-blog-api-ptpsayzdyc.now.sh';
 
@@ -11,9 +12,16 @@ class HomePage extends Component {
             page: '',
             posts: []
         };
+        this.fetchPostByPage = this.fetchPostByPage.bind(this);
     }
+    
     componentDidMount () {
-        axios.get(`${API_URL}/posts`)
+        const pageNum = this.props.match.params.pageNum;
+        this.fetchPostByPage(pageNum);
+    }
+
+    fetchPostByPage (pageNum) {
+        axios.get(`${API_URL}/posts?page=${pageNum}`)
             .then((res) => {
                 this.setState({
                     page: res.data.page,
@@ -21,6 +29,13 @@ class HomePage extends Component {
                 });
             })
             .catch(console.log);
+    }
+
+    componentWillReceiveProps (newProps) {
+        const currPage = this.props.match.params.pageNum;
+        const newPage = newProps.match.params.pageNum;
+
+        if (currPage !== newPage) this.fetchPostByPage(newPage);
     }
 
     render () {
@@ -31,8 +46,11 @@ class HomePage extends Component {
                         <h3 className="panel-title">
                             Latest Posts ....
                         </h3>
+                        <Paginator 
+                            currPage={Number(this.props.match.params.pageNum)} 
+                            currPath={this.props.match.url}
+                        />
                         <Posts page={this.state.page} posts={this.state.posts}  />
-                        {/*<Paginator />*/}
                     </div>
                 </div>
             </div>
